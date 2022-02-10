@@ -1,0 +1,239 @@
+* Manipulating Files and Directories
+
+1)pwd
+->it shows print working directory
+sanandiyajaykumar@SF-CPU:~/Documents/projects/linux$ pwd
+/home/sanandiyajaykumar/Documents/projects/linux
+
+2)mkdir 
+->mkdir command is used to create a new directory under any directory
+mkdir <directory name>  
+mkdir file1
+
+3)rmdir 
+-> remove directory 
+rmdir file1
+
+4) ls
+->it is used to display a list of content of a directory
+-> ls -l with autthor and permission
+-> ls -a hidden
+
+5)cd 
+-> change current directory
+cd Desktop
+
+
+6)touch Command
+->the command is used to create empty files. We can create multiple empty files by executing it once.
+->touch index.js index.html styles.css
+
+7)cat
+-> it has many usage 
+-> cat [OPTION]... [FILE]..  
+-> cat <file name>
+it shows content
+-> cat > Deno.txt      : wright in file
+
+8)rm 
+->The rm command is used to remove a file.
+eg Rm Demo.txt
+
+
+9)mv  2 usages
+-> move file/directory 
+-> rename file also
+eg mv <file name> <directory path>
+
+
+
+*)List all file permissions with example
+
+1)File Permission  Read
+ls –l [file_name]
+ls –l test.txt
+
+- rwx-rwx-rxw
+file type , User , Group , Public
+r = read , w= write ,x = execute
+
+2)Using chmod Command to Change File Permissions 
+
+chmod [permission] [file_name]
+
+	way 1)
+	eg chmod 524 file1.txt
+ 	524 =  (5->101) ,(2-> 010) , (4->100)   
+	 101 means r->1 ,w->0 , x->1
+ 
+
+
+	way 2)
+	eg chmod u=rw,g=r,o=r test.txt
+	u-> user , g-> group , o-> other
+
+
+3)Changing User File and Group Ownership
+  
+ eg chown [user_name] [file_name]
+  eg  chgrp [group_name] [file_name]
+
+*) List all running process
+
+all processes + background processes
+1) ps -a
+2) top
+
+*)Find particular process by it's name
+
+eg ps axww | grep "Visual Studio Code"
+
+eg pidof firefox
+returns process ID of firefox if firefox in running state
+
+- sort process on basis of memory allocated
+eg top -o mem
+
+
+*)How to kill any particular process
+
+eg kill <pID>
+-> kill 53211 532110 532456
+
+extra stuff (ony for reference)
+-jobs , fg ,bg
+   (foreground proceese & background processes)
+*)Vi or Vim for file editing
+  
+install vim
+-sudo apt install vim
+-let say Demo2.txt file
+- vim Demo2.txt
+- PRESS 'i' to insert
+- Write something
+- case1 ) Save & Exit
+	 - ESC
+	 - :wq
+	 - ENTER
+-case2)  Exit
+	-ESC
+	-:q
+	-:ENTER
+
+
+*)Change file owner and group
+
+-chown 
+eg sudo chown colt file1.txt
+
+eg sudo chown  -R colt file1.txt
+    recursive calls for sub-folder and sub-files.
+
+*) Change group ownership
+
+eg sudo chown <owner>:<group> <file>
+  eg sudo chown jk:99club file1.txt
+  
+ Another way of only group change
+ 
+  eg  : sudo chown : 99club file1.txt
+  
+  
+
+# NOTE
+Not all commands work in pipe (|)
+eg cat deadlist.txt | rm                 (it will not work)
+
+suppose deadlist.txt have playername who will be dead after some rounds .
+rm not accept  input commands , it just need space separated input arguments
+
+(Use xargs)
+
+cat deadlist.txt |  xargs rm
+
+
+*)Moving and Renaming Files
+
+mv  2 usages
+-> move file/directory 
+
+eg mv <file name> <directory path>
+
+   mv fil2.txt Documents/jay / 
+   
+-> rename file also
+   mv file1.txt file2.txt
+
+*)Remove Files and Directories
+
+
+rm 
+->The rm command is used to remove a file.
+eg rm Demo.txt
+
+remove empty directory
+->rmdir dirname
+
+remove non-empty directory
+-> rmdir -r dirname
+
+*)List the directory contents
+  -> ls 
+  -> ls  -a     (with hidden)
+  -> ls -al	(with author details and permission)
+  
+
+*) How I can get the path of working directory
+
+-> pwd   ( print working directory)
+
+
+*) How to Search in Vim/Vi
+
+-> PRESS '/'
+-> then type word to search
+
+*)How Do You Do A Search And Replace in Vim/Vi 
+
+It replaces all 'OLD' TO 'NEW'
+:s/OLD/NEW/g
+
+
+*)How we can save and exit from Vim/Vi file 
+
+ESC
+:wq
+ENTER
+
+
+
+
+Thanks for Reading
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
